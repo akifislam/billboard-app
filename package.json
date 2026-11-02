@@ -1,0 +1,19 @@
+{
+  "name": "billboard-web",
+  "version": "3.0.0",
+  "description": "BillBoard web — NESCO/DESCO/PGCL prepaid balance dashboard, run locally with npm",
+  "private": true,
+  "type": "commonjs",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "express": "^5.3.0",
+    "open": "^8.4.2"
+  }
+}

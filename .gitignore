@@ -1,0 +1,9 @@
+node_modules/
+npm-debug.log*
+server/meters.json
+server/meters.*.json
+!server/meters.example.json
+.env
+.env.*
+!.env.example
+.DS_Store

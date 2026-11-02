@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BillBoard</title>
+  <link rel="icon" href="icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="splashScreen" class="splash">
+    <div class="splash-center">
+      <img src="icon.png" alt="BillBoard" class="splash-logo" />
+      <h1 class="splash-title">BillBoard</h1>
+      <p class="splash-tagline">A multi-meter management app</p>
+    </div>
+    <div class="splash-footer">
+      <div class="splash-credit">Developed by Akif Islam</div>
+      <div class="social-row">
+        <a class="social-btn fb" href="https://www.facebook.com/iamakifislam/" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+        <a class="social-btn li" href="https://www.linkedin.com/in/akifislam" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a class="social-btn mail" href="mailto:iamakifislam@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
+      <div class="splash-email">iamakifislam@gmail.com</div>
+    </div>
+  </div>
+
+  <div id="app">
+    <header class="topbar">
+      <div class="topbar-title">
+        <img src="icon.png" alt="" class="topbar-logo" />
+        <span>BillBoard</span>
+      </div>
+      <button id="refreshBtn" class="icon-btn" title="Refresh" aria-label="Refresh">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+      </button>
+    </header>
+
+    <main id="dashboard" class="screen">
+      <div id="dashboardEmpty" class="empty-state hidden">No meters yet. Tap + to add your first meter.</div>
+      <div id="dashboardLoading" class="center-spinner"><div class="spinner"></div></div>
+      <div id="meterList" class="meter-list hidden"></div>
+      <div id="statusText" class="status-text"></div>
+    </main>
+
+    <main id="detailsScreen" class="screen hidden">
+      <div id="detailsContent" class="details-content"></div>
+    </main>
+
+    <button id="fab" class="fab" title="Add meter" aria-label="Add meter">
+      <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+    </button>
+
+    <footer class="bottombar">
+      <div>App developed by Akif Islam</div>
+      <div class="footer-social">
+        <a class="social-btn fb small" href="https://www.facebook.com/iamakifislam/" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+        <a class="social-btn li small" href="https://www.linkedin.com/in/akifislam" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a class="social-btn mail small" href="mailto:iamakifislam@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" width="12" height="12"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Add Meter dialog -->
+  <div id="addDialogOverlay" class="overlay hidden">
+    <div class="dialog">
+      <h3>Add Meter</h3>
+      <div class="segmented" id="providerSegmented">
+        <button type="button" class="segment selected" data-provider="NESCO">NESCO</button>
+        <button type="button" class="segment" data-provider="DESCO">DESCO</button>
+        <button type="button" class="segment" data-provider="PGCL">PGCL</button>
+      </div>
+      <label class="field-label">Meter type</label>
+      <div class="segmented" id="meterTypeSegmented">
+        <button type="button" class="segment selected" data-meter-type="PREPAID">Prepaid</button>
+        <button type="button" class="segment" data-meter-type="POSTPAID">Postpaid</button>
+      </div>
+      <label class="field-label" id="meterFieldLabel">Meter number</label>
+      <input id="meterInput" class="text-field" type="text" autocomplete="off" />
+      <label class="field-label">Nickname (optional)</label>
+      <input id="nicknameInput" class="text-field" type="text" autocomplete="off" />
+      <div id="addError" class="error-text hidden"></div>
+      <div class="dialog-actions">
+        <button id="addCancelBtn" class="text-btn">Cancel</button>
+        <button id="addConfirmBtn" class="text-btn primary">Add Meter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm delete dialog -->
+  <div id="deleteDialogOverlay" class="overlay hidden">
+    <div class="dialog">
+      <h3>Remove meter?</h3>
+      <p id="deleteDialogText"></p>
+      <div class="dialog-actions">
+        <button id="deleteCancelBtn" class="text-btn">Cancel</button>
+        <button id="deleteConfirmBtn" class="text-btn danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
