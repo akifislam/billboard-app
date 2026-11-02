@@ -1,0 +1,31 @@
+# Add project specific R8 rules here.
+# AGP will combine all keep rule files in src/main/keepRules to pass to R8
+#
+# For more details, see
+#   https://d.android.com/r/tools/r8/keep-rules
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# WorkManager instantiates Worker subclasses reflectively by class name (LowBalanceWorker), so
+# they must survive obfuscation/shrinking untouched.
+-keep class * extends androidx.work.ListenableWorker {
+    <init>(android.content.Context, androidx.work.WorkerParameters);
+}
+
+# MeterStore/MonthlyUsageCache persist these model classes to disk via Gson reflection (no
+# @SerializedName annotations). Renaming/removing fields here would silently corrupt or drop
+# previously-saved data, so keep the whole data package intact.
+-keepattributes Signature
+-keep class com.butterflydevs.billboard.data.** { *; }
+-keep class * extends com.google.gson.reflect.TypeToken
+
+# WorkManager's internal Room database (WorkDatabase_Impl) is instantiated via reflection at
+# startup; R8 was stripping its constructor and crashing the app on launch (NoSuchMethodException
+# in InitializationProvider). Keep WorkManager's whole implementation package untouched.
+-keep class androidx.work.impl.** { *; }
+-keep class * extends androidx.room.RoomDatabase

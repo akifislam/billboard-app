@@ -1,0 +1,39 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+/keystore.properties
+*.jks
+*.keystore
+local.properties
+
+# Credentials and signing material
+.env
+.env.*
+!.env.example
+*.p12
+*.pfx
+*.pem
+*.key
+*.cer
+*.der
+*.mobileprovision
+
+# Private runtime/customer data
+web/server/meters.json
+web/server/meters.*.json
+
+# Xcode user and build state
+**/xcuserdata/
+**/*.xcuserstate
+**/DerivedData/
