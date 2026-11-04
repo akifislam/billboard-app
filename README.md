@@ -1,6 +1,6 @@
 # BillBoard
 
-[Visit the BillBoard website](https://akifislam.github.io/nesco-android-app/) · A private electricity and gas dashboard for NESCO, DESCO, and PGCL. Track balances, payments, and low-balance alerts in one clear view.
+[Visit the BillBoard website](https://akifislam.github.io/billboard-app/) · A private electricity and gas dashboard for NESCO, DESCO, and PGCL. Track balances, payments, and low-balance alerts in one clear view.
 
 <p align="center"><img src="docs/assets/icon.png" width="112" alt="BillBoard icon"></p>
 <h3 align="center">Every meter. One calm view.</h3>
