@@ -32,7 +32,7 @@ BillBoard brings multiple electricity and gas connections into one focused dashb
 | --- | --- | --- |
 | [`main`](../../tree/main) / [`android`](../../tree/android) | Android production app | Kotlin, Jetpack Compose, DataStore, WorkManager |
 | [`ios`](../../tree/ios) | Native iPhone app | Swift, SwiftUI |
-| [`web`](../../tree/web) | Local web dashboard | Node.js, Express, vanilla JavaScript |
+| [`gh-pages`](../../tree/gh-pages) | Advertising website from `docs/` | Static HTML, CSS, JavaScript |
 
 The public source and downloadable builds contain **no saved customer, meter, balance, or utility-response data**. Every installation starts empty.
 
@@ -54,15 +54,9 @@ Open `BillBoard.xcodeproj` from the `ios` branch, choose your Apple development 
 
 The direct IPA is unsigned and intended for users who understand personal signing. For broad installation, use TestFlight/App Store distribution or an Apple Developer Ad Hoc profile containing each permitted device.
 
-## Web
+## Website
 
-```bash
-cd web
-npm ci
-npm start
-```
-
-The server prints its local URL at startup. Saved connections are local runtime data and are excluded from the public repository.
+[BillBoard advertising website](https://akifislam.github.io/billboard-app/) introduces the app, its features, and downloads. Its source is in `docs/index.html`, `docs/site.css`, and `docs/site.js`; `docs/downloads/` contains the downloadable apps. The same static site is published on the `gh-pages` branch.
 
 ## Privacy and security
 
