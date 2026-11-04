@@ -1,108 +1,87 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BillBoard</title>
-  <link rel="icon" href="icon.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08080b">
+  <meta name="description" content="BillBoard brings NESCO, DESCO, and PGCL together. Check balances, track payments, and receive low-balance alerts in one private utility dashboard.">
+  <title>BillBoard — every meter, one calm view</title>
+  <link rel="icon" href="icon.png">
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <div id="splashScreen" class="splash">
-    <div class="splash-center">
-      <img src="icon.png" alt="BillBoard" class="splash-logo" />
-      <h1 class="splash-title">BillBoard</h1>
-      <p class="splash-tagline">A multi-meter management app</p>
-    </div>
-    <div class="splash-footer">
-      <div class="splash-credit">Developed by Akif Islam</div>
-      <div class="social-row">
-        <a class="social-btn fb" href="https://www.facebook.com/iamakifislam/" target="_blank" rel="noopener" aria-label="Facebook">f</a>
-        <a class="social-btn li" href="https://www.linkedin.com/in/akifislam" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-        <a class="social-btn mail" href="mailto:iamakifislam@gmail.com" aria-label="Email">
-          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="#top"><img src="icon.png" alt=""><span>BillBoard</span></a>
+    <div class="nav-links"><a href="#features">Features</a><a href="#privacy">Privacy</a><a class="nav-download" href="#download">Download</a></div>
+  </nav>
+
+  <main id="top">
+    <section class="hero scene">
+      <div class="aurora aurora-one"></div><div class="aurora aurora-two"></div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">THE BILLBOARD FIELD GUIDE / EDITION 01</p>
+        <h1>Every meter.<br><span>One clear story.</span></h1>
+        <p class="lede">Track electricity and gas connections together—without accounts, clutter, or checking portal after portal.</p>
+        <div class="actions">
+          <a class="button play" href="https://play.google.com/store/apps/details?id=com.butterflydevs.billboard&amp;hl=en" target="_blank" rel="noopener"><span class="play-mark">▶</span><span><small>GET IT ON</small>Google Play</span></a>
+          <a class="button secondary" href="#download">Other downloads <span>↓</span></a>
+        </div>
       </div>
-      <div class="splash-email">iamakifislam@gmail.com</div>
-    </div>
-  </div>
-
-  <div id="app">
-    <header class="topbar">
-      <div class="topbar-title">
-        <img src="icon.png" alt="" class="topbar-logo" />
-        <span>BillBoard</span>
+      <div class="hero-device reveal" data-delay="1">
+        <div class="phone" aria-label="Synthetic BillBoard app preview">
+          <div class="phone-island"></div>
+          <div class="phone-screen">
+            <div class="app-head"><span class="mini-logo">B</span><b>BillBoard</b><span>↻</span></div>
+            <div class="meter-card purple"><div class="meter-top"><span>⚡ NESCO Electric</span><b>PREPAID</b></div><h3>Home</h3><small>•••• 4821</small><strong>৳ 1,248.50</strong><p>About 18 days remaining</p></div>
+            <div class="meter-card orange"><div class="meter-top"><span>● PGCL Gas</span><b>POSTPAID</b></div><h3>Family House</h3><small>•••• 0372</small><strong class="good">No due bills</strong><p>Updated just now</p></div>
+            <div class="meter-card blue"><div class="meter-top"><span>⚡ DESCO Electric</span><b>PREPAID</b></div><h3>Office</h3><small>•••• 9104</small><strong>৳ 862.20</strong><p>About 11 days remaining</p></div>
+          </div>
+        </div>
       </div>
-      <button id="refreshBtn" class="icon-btn" title="Refresh" aria-label="Refresh">
-        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
-      </button>
-    </header>
+      <a class="scroll-cue" href="#story" aria-label="Continue"><span></span>Scroll to explore</a>
+    </section>
 
-    <main id="dashboard" class="screen">
-      <div id="dashboardEmpty" class="empty-state hidden">No meters yet. Tap + to add your first meter.</div>
-      <div id="dashboardLoading" class="center-spinner"><div class="spinner"></div></div>
-      <div id="meterList" class="meter-list hidden"></div>
-      <div id="statusText" class="status-text"></div>
-    </main>
+    <section id="story" class="statement scene">
+      <div class="statement-inner reveal"><p>One meter is easy.</p><p>Five meters become a routine.</p><h2>BillBoard turns that routine into <span>one glance.</span></h2></div>
+    </section>
 
-    <main id="detailsScreen" class="screen hidden">
-      <div id="detailsContent" class="details-content"></div>
-    </main>
-
-    <button id="fab" class="fab" title="Add meter" aria-label="Add meter">
-      <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-    </button>
-
-    <footer class="bottombar">
-      <div>App developed by Akif Islam</div>
-      <div class="footer-social">
-        <a class="social-btn fb small" href="https://www.facebook.com/iamakifislam/" target="_blank" rel="noopener" aria-label="Facebook">f</a>
-        <a class="social-btn li small" href="https://www.linkedin.com/in/akifislam" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-        <a class="social-btn mail small" href="mailto:iamakifislam@gmail.com" aria-label="Email">
-          <svg viewBox="0 0 24 24" width="12" height="12"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </a>
+    <section id="features" class="feature-stage scene">
+      <div class="feature-copy">
+        <article class="feature-step active" data-card="0"><p class="eyebrow">01 — All together</p><h2>Your utilities,<br>side by side.</h2><p>NESCO, DESCO, and PGCL live in a single dashboard with clear colors and familiar nicknames.</p></article>
+        <article class="feature-step" data-card="1"><p class="eyebrow">02 — Useful context</p><h2>More than<br>a number.</h2><p>See balance, last payment, due status, recharge history, and an estimate of how long your balance may last.</p></article>
+        <article class="feature-step" data-card="2"><p class="eyebrow">03 — Quietly watchful</p><h2>Know before<br>it runs low.</h2><p>Low-balance notifications help you recharge in time. Cached information stays useful when your connection does not.</p></article>
       </div>
-    </footer>
-  </div>
+      <div class="feature-visual" aria-hidden="true">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="glass-stat"><span id="statIcon">⚡</span><small id="statLabel">Connections</small><strong id="statValue">All in one</strong><i id="statHint">NESCO · DESCO · PGCL</i></div>
+      </div>
+    </section>
 
-  <!-- Add Meter dialog -->
-  <div id="addDialogOverlay" class="overlay hidden">
-    <div class="dialog">
-      <h3>Add Meter</h3>
-      <div class="segmented" id="providerSegmented">
-        <button type="button" class="segment selected" data-provider="NESCO">NESCO</button>
-        <button type="button" class="segment" data-provider="DESCO">DESCO</button>
-        <button type="button" class="segment" data-provider="PGCL">PGCL</button>
-      </div>
-      <label class="field-label">Meter type</label>
-      <div class="segmented" id="meterTypeSegmented">
-        <button type="button" class="segment selected" data-meter-type="PREPAID">Prepaid</button>
-        <button type="button" class="segment" data-meter-type="POSTPAID">Postpaid</button>
-      </div>
-      <label class="field-label" id="meterFieldLabel">Meter number</label>
-      <input id="meterInput" class="text-field" type="text" autocomplete="off" />
-      <label class="field-label">Nickname (optional)</label>
-      <input id="nicknameInput" class="text-field" type="text" autocomplete="off" />
-      <div id="addError" class="error-text hidden"></div>
-      <div class="dialog-actions">
-        <button id="addCancelBtn" class="text-btn">Cancel</button>
-        <button id="addConfirmBtn" class="text-btn primary">Add Meter</button>
-      </div>
-    </div>
-  </div>
+    <section id="privacy" class="privacy scene">
+      <div class="privacy-glow"></div>
+      <div class="privacy-copy reveal"><div class="lock">⌁</div><p class="eyebrow">Private by design</p><h2>No account.<br>No cloud vault.<br><span>No tracking.</span></h2><p>Your saved connections stay on your device. BillBoard talks to utility portals to retrieve the information you request.</p></div>
+      <div class="privacy-grid reveal" data-delay="1"><div><strong>0</strong><span>accounts to create</span></div><div><strong>Local</strong><span>meter storage</span></div><div><strong>Direct</strong><span>utility lookups</span></div><div><strong>You</strong><span>stay in control</span></div></div>
+    </section>
 
-  <!-- Confirm delete dialog -->
-  <div id="deleteDialogOverlay" class="overlay hidden">
-    <div class="dialog">
-      <h3>Remove meter?</h3>
-      <p id="deleteDialogText"></p>
-      <div class="dialog-actions">
-        <button id="deleteCancelBtn" class="text-btn">Cancel</button>
-        <button id="deleteConfirmBtn" class="text-btn danger">Delete</button>
-      </div>
-    </div>
-  </div>
+    <section class="providers scene">
+      <p class="eyebrow reveal">Built for the connections you manage</p>
+      <h2 class="reveal">Three providers. One language.</h2>
+      <div class="provider-row"><div class="provider purple reveal"><span>⚡</span><h3>NESCO</h3><p>Prepaid &amp; postpaid electricity</p></div><div class="provider blue reveal" data-delay="1"><span>⚡</span><h3>DESCO</h3><p>Prepaid electricity</p></div><div class="provider orange reveal" data-delay="2"><span>●</span><h3>PGCL</h3><p>Postpaid gas</p></div></div>
+    </section>
 
-  <script src="app.js"></script>
+    <section id="download" class="download scene">
+      <div class="download-copy reveal"><img src="icon.png" alt="BillBoard app icon"><p class="eyebrow">BillBoard 1.0.3</p><h2>Your meters are waiting.</h2><p>Choose the version that fits your device.</p></div>
+      <div class="download-grid reveal" data-delay="1">
+        <a class="download-card featured" href="https://play.google.com/store/apps/details?id=com.butterflydevs.billboard&amp;hl=en" target="_blank" rel="noopener"><span class="platform">Android · Recommended</span><strong>Google Play</strong><p>Automatic updates and the simplest installation.</p><i>Open Play Store ↗</i></a>
+        <a class="download-card" href="https://github.com/akifislam/nesco-android-app/raw/refs/heads/android/docs/downloads/BillBoard-Android-v1.0.3.apk" download><span class="platform">Android · Direct</span><strong>APK</strong><p>Version 1.0.3 for manual installation.</p><i>Download APK ↓</i></a>
+        <a class="download-card" href="https://github.com/akifislam/nesco-android-app/raw/refs/heads/ios/releases/BillBoard-iOS-Shareable-Unsigned.ipa" download><span class="platform">iPhone · Advanced</span><strong>IPA</strong><p>Unsigned build; requires personal signing with Xcode, AltStore, or Sideloadly.</p><i>Download IPA ↓</i></a>
+      </div>
+      <p class="custom reveal">Need a customized version for your building or organization? <a href="mailto:iamakifislam@gmail.com">iamakifislam@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#top"><img src="icon.png" alt=""><span>BillBoard</span></a><p>An independent utility dashboard by Akif Islam.</p><p>Not affiliated with NESCO, DESCO, or PGCL.</p></footer>
+  <script src="site.js"></script>
 </body>
 </html>
