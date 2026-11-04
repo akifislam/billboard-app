@@ -1,6 +1,6 @@
 # BillBoard website
 
-An editorial advertising website for BillBoard, the private NESCO, DESCO, and PGCL utility dashboard.
+The static BillBoard advertising website, copied from the Android edition's `docs/` directory, with its assets and app downloads.
 
 Visit https://akifislam.github.io/billboard-app/
 
